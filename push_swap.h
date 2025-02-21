@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:26:29 by samcu             #+#    #+#             */
-/*   Updated: 2025/02/21 13:24:36 by samcu            ###   ########.fr       */
+/*   Updated: 2025/02/21 18:17:42 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-typedef struct
+typedef struct s_stack
 {
-	int	*collection;
-	int	capacity;
+	int *data;
+	struct s_stack* next;
 	int	size;
-} Stack;
+} t_stack;
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-Stack	*create_stack(int capacity);
-void	destroy_stack(Stack *stack);
-bool	is_full(Stack *stack);
-bool	is_empty(Stack *stack);
-bool	pop(Stack *stack, int *item);
-bool	push(Stack *stack, int item);
-bool	peek(Stack *stack, int *item);
-void    sa(Stack *stack);
-void	list_stack(Stack *stack);
+t_stack	*create_stacks(t_stack ***stack_a, t_stack ***stack_b);
+// void	destroy_stack(t_stack *stack);
+// bool	is_full(t_stack *stack);
+// bool	is_empty(t_stack *stack);
+// bool	pop(t_stack *stack, int *item);
+// bool	push(t_stack *stack, int item);
+// bool	peek(t_stack *stack, int *item);
+// void    sa(t_stack *stack);
+// void	list_stack(t_stack *stack);
 #endif

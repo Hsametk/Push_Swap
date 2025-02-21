@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 12:41:44 by samcu             #+#    #+#             */
-/*   Updated: 2025/02/21 12:42:16 by samcu            ###   ########.fr       */
+/*   Created: 2025/02/21 17:55:29 by hakotu            #+#    #+#             */
+/*   Updated: 2025/02/21 18:11:21 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,14 @@ bool pop(Stack *stack, int *item)
   
   // return true as we have successfully popped the item at the top of the stack
   return true;
+}
+
+void	create_stacks(t_stack ***stack_a, t_stack ***stack_b)
+{
+	*stack_a = (t_stack **)malloc(sizeof(t_stack *));
+	*stack_b = (t_stack **)malloc(sizeof(t_stack *));
+	if (!(*stack_a) || !(*stack_b))
+		exit(1);
+	**stack_a = NULL;
+	**stack_b = NULL;
 }
