@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   arg_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 17:55:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/23 15:10:55 by hakotu           ###   ########.fr       */
+/*   Created: 2025/02/23 15:38:58 by hakotu            #+#    #+#             */
+/*   Updated: 2025/02/23 16:45:49 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	create_stacks(t_stack ***stack_a, t_stack ***stack_b)
+
+void is_argv_empty(char **str)
 {
-	*stack_a = (t_stack **)malloc(sizeof(t_stack *));
-	*stack_b = (t_stack **)malloc(sizeof(t_stack *));
-	if (!(*stack_a) || !(*stack_b))
-		exit(1);
-	**stack_a = NULL;
-	**stack_b = NULL;
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        if (!str[i][0] || (str[i][0] == ' ' && !str[i][1]))
+            error();
+        i++;
+    }
+    return(0);   
 }
-void append(t_stack **stack, int value)
+void argc_control(char **str, int argc)
 {
-	if ((*stack)->data == NULL)
-		(*stack)->data = value;
-  
+    if (argc == 2)
+    {
+        ft_split();
+    }
+    
 }

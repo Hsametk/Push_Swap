@@ -6,7 +6,7 @@
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:26:29 by samcu             #+#    #+#             */
-/*   Updated: 2025/02/21 18:17:42 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/02/23 16:40:23 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef struct s_stack
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "library_srcs/ft_printf/ft_printf.h"
+#include "library_srcs/libft/libft.h"
+
 
 t_stack	*create_stacks(t_stack ***stack_a, t_stack ***stack_b);
 // void	destroy_stack(t_stack *stack);

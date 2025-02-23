@@ -6,7 +6,7 @@
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:46:37 by samcu             #+#    #+#             */
-/*   Updated: 2025/02/21 18:36:25 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/02/23 15:15:22 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,12 @@ void swap(t_stack **stack)
     t_stack *first;
     t_stack *second;
 
+    if ((*stack)->size < 2)
+        return ;  
     first = *stack;
     second = (*stack)->next;
     first->next = second->next;
     second->next = first;
-
     *stack = second;
 }
 void    swap_a(t_stack **stack_a)

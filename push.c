@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 17:55:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/23 15:10:55 by hakotu           ###   ########.fr       */
+/*   Created: 2025/02/23 15:17:49 by hakotu            #+#    #+#             */
+/*   Updated: 2025/02/23 15:24:11 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	create_stacks(t_stack ***stack_a, t_stack ***stack_b)
+void	push(t_stack **src_stack, t_stack **dst_stack)
 {
-	*stack_a = (t_stack **)malloc(sizeof(t_stack *));
-	*stack_b = (t_stack **)malloc(sizeof(t_stack *));
-	if (!(*stack_a) || !(*stack_b))
-		exit(1);
-	**stack_a = NULL;
-	**stack_b = NULL;
+	t_stack	*head;
+
+	if (stack_size(*src_stack) == 0)
+		return ;
+	head = *src_stack;
+	*src_stack = head->next;
+	head->next = *dst_stack;
+	*dst_stack = head;
 }
-void append(t_stack **stack, int value)
+
+void push_a(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack)->data == NULL)
-		(*stack)->data = value;
-  
+    push(stack_a, stack_b);
+    ft_printf("pa\n");
+}
+void push_a(t_stack **stack_b, t_stack **stack_a)
+{
+    push(stack_b, stack_a);
+    ft_printf("pb\n");
+
 }
