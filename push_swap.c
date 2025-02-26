@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:25:10 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/23 16:38:43 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/02/26 15:29:30 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,15 @@ int main(int argc, char *argv[])
   
   
 }
+/*
+	Gelen sayılar tek tırnağın içerisinde ise split fonksiyonu çağırılır ve boşluğa göre sayıları ayırır.
+  Eğer sayılar tek tırnak içerisinde değilse direk sayıları stack_a'ya ekler.
+  Stack_a'ya eklenen sayılar kontrol edilir.
+  Eğer stack_a'da tek sayı varsa hata döner.
+  Eğer stack_a'da çift sayı varsa stack_b'ye sayıların yarısı push edilir.
+  Stack_b'ye push edilen sayılar kontrol edilir.
+  Eğer stack_b'de tek sayı varsa hata döner.
+  Eğer stack_b'de çift sayı varsa stack_a'ya sayıların yarısı push edilir.
+
+
+*/
