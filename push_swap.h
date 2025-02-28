@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:26:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/26 15:27:58 by samcu            ###   ########.fr       */
+/*   Updated: 2025/02/28 12:17:52 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ typedef struct s_stack
 	int *data;
 	struct s_stack* next;
 	int	size;
+	//int index;
 } t_stack;
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "library_srcs/printf/ft_printf.h"
+#include "library_srcs/ft_printf/ft_printf.h"
 #include "library_srcs/libft/libft.h"
 
 

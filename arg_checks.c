@@ -3,33 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   arg_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:38:58 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/26 15:29:32 by samcu            ###   ########.fr       */
+/*   Updated: 2025/02/28 17:47:12 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	is_argv_empty(char **str)
+static int	check_spaces(char *str)
 {
 	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (!str[i][0] || (str[i][0] == ' ' && !str[i][1]))
-            error();
-        i++;
-    }
-    return(0);   
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ' && !str[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
-void argc_control(char **str, int argc)
+
+char    **read_numbers(char **argv, int argc , char **str)
 {
-    if (argc == 2)
+    int     i;
+    char    **str;
+    i = 0;
+	if (argc > 2)
+	{
+		while (i < argv)
+        {
+            str[i] = argv[i];
+            i++;
+        }
+	}
+    else
     {
-        ft_split();
+        str = ft_split(argv[1], ' ');
     }
-    
+    return (str);
 }
+void argumans_controller(char **argv, int argc)
+{
+	char **str;
+	
+	str = read_numbers(argv, argc, str);
+	 
+
+}
+ //is_arg_null(argv);

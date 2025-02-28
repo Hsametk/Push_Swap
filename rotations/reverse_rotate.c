@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:45:15 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/26 15:27:56 by samcu            ###   ########.fr       */
+/*   Updated: 2025/02/27 13:12:39 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,4 @@ void rrr(t_stack **stack_a , t_stack **stack_b)
 	ft_printf("rrr\n");
 
 }
+// double pointer kullanabilirisin 

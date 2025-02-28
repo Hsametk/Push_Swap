@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:55:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/26 15:27:54 by samcu            ###   ########.fr       */
+/*   Updated: 2025/02/28 12:15:47 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	create_stacks(t_stack ***stack_a, t_stack ***stack_b)
 	**stack_b = NULL;
 }
 
+// 7 10 5 50 42 458 472 211 
 void	append(t_stack **stack, int value)
 {
 	if ((*stack)->data == NULL)
