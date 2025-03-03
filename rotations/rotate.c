@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:07:46 by samcu             #+#    #+#             */
-/*   Updated: 2025/02/26 12:17:23 by samcu            ###   ########.fr       */
+/*   Updated: 2025/03/03 13:04:46 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rotate(t_stack **stack)
 {
@@ -24,7 +24,7 @@ void	rotate(t_stack **stack)
     while (iter->next != NULL)
         iter = iter->next;
     iter->next = first;
-    stack= first->next;
+    stack= &first->next;
 	first->next = NULL;
 }
 

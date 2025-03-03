@@ -6,11 +6,11 @@
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:45:15 by hakotu            #+#    #+#             */
-/*   Updated: 2025/02/27 13:12:39 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/03/03 13:04:57 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void reverse_rotate(t_stack **stack)
 {

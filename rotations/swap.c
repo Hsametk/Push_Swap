@@ -6,11 +6,11 @@
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:46:37 by samcu             #+#    #+#             */
-/*   Updated: 2025/02/28 12:30:06 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/03/03 13:25:29 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // void list_stack(t_stack *stack) {
 //     if (is_empty(stack)) {
@@ -28,7 +28,7 @@ void swap(t_stack **stack)
     t_stack *first;
     t_stack *second;
 
-    if ((*stack)->size < 2)
+    if (stack_size(*stack) < 2)
         return ;  
     first = *stack;
     second = (*stack)->next;
