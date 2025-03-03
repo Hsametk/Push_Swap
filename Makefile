@@ -73,7 +73,8 @@ SRC = push_swap.c \
       rotations/rotate.c \
       rotations/reverse_rotate.c \
       rotations/push.c \
-      rotations/swap.c
+      rotations/swap.c \
+      radix_sort.c
 
 # Object Files
 OBJ = push_swap.o \
@@ -82,7 +83,8 @@ OBJ = push_swap.o \
       rotations/rotate.o \
       rotations/reverse_rotate.o \
       rotations/push.o \
-      rotations/swap.o
+      rotations/swap.o \
+      radix_sort.c
 
 # Targets
 all: $(NAME)
