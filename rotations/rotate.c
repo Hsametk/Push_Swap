@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:07:46 by samcu             #+#    #+#             */
-/*   Updated: 2025/03/03 13:04:46 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/03/03 20:53:30 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	rotate(t_stack **stack)
 {
-	t_stack*	iter;
-	t_stack*	first;
+	t_stack	*iter;
+	t_stack	*first;
 
-    if (!*stack || !(*stack)->next)
-		return;
+	if (!*stack || !(*stack)->next)
+		return ;
 	first = *stack;
-    iter = *stack;
-    while (iter->next != NULL)
-        iter = iter->next;
-    iter->next = first;
-    stack= &first->next;
+	iter = *stack;
+	while (iter->next)
+		iter = iter->next;
+	*stack = first->next;
 	first->next = NULL;
+	iter->next = first;
 }
 
 void rotate_a(t_stack **stack_a)

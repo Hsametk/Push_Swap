@@ -53,7 +53,7 @@
 NAME = push_swap
 
 # Paths
-FT_PRINTF_PATH = library_srcs/ft_printf
+FT_PRINTF_PATH = library_srcs/printf
 FT_PRINTF = $(FT_PRINTF_PATH)/libftprintf.a
 LIBFT_PATH = library_srcs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
@@ -84,7 +84,7 @@ OBJ = push_swap.o \
       rotations/reverse_rotate.o \
       rotations/push.o \
       rotations/swap.o \
-      radix_sort.c
+      radix_sort.o
 
 # Targets
 all: $(NAME)

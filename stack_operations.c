@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:55:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/03 13:59:27 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/03/03 20:56:39 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ int	stack_size(t_stack *stack)
 	t_stack	*iter;
 	int		i;
 
+	if (!stack)
+		return (0);
 	iter = stack;
-	i = 0;
+	i = 1;  // 1'den başla çünkü ilk elemanı sayıyoruz
 	while (iter->next != NULL)
 	{
 		i++;
