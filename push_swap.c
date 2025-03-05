@@ -6,7 +6,7 @@
 /*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:25:10 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/05 14:00:06 by samcu            ###   ########.fr       */
+/*   Updated: 2025/03/05 22:10:51 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,37 +60,39 @@ static void	cleanup_memory(t_stack **stack_a, t_stack **stack_b, char **args)
 	int		i;
 
 	// Stack A'yı temizle
-	if (stack_a && *stack_a)
+	while (*stack_a)
 	{
-		while (*stack_a)
-		{
-			tmp = (*stack_a)->next;
-			free(*stack_a);
-			*stack_a = tmp;
-		}
-		free(stack_a);
+		tmp = (*stack_a)->next;
+		free(*stack_a);
+		*stack_a = tmp;
 	}
+	free(stack_a);  // stack_a pointer'ını da free et
 
 	// Stack B'yi temizle
-	if (stack_b && *stack_b)
+	while (*stack_b)
 	{
-		while (*stack_b)
-		{
-			tmp = (*stack_b)->next;
-			free(*stack_b);
-			*stack_b = tmp;
-		}
-		free(stack_b);
+		tmp = (*stack_b)->next;
+		free(*stack_b);
+		*stack_b = tmp;
 	}
+	free(stack_b);  // stack_b pointer'ını da free et
 
 	// args'ı temizle
-	if (args)
+	i = 0;
+	while (args[i])
+		free(args[i++]);
+	free(args);
+}
+
+static int	is_sorted(t_stack *stack)
+{
+	while (stack && stack->next)
 	{
-		i = 0;
-		while (args[i])
-			free(args[i++]);
-		free(args);
+		if (stack->data > stack->next->data)
+			return (0);
+		stack = stack->next;
 	}
+	return (1);
 }
 
 int	main(int argc, char *argv[])
@@ -105,11 +107,21 @@ int	main(int argc, char *argv[])
 	create_stacks(&stack_a, &stack_b);
 	fill_stack(&stack_a, args);
 
-	// Sayıların geçerli aralıkta olduğunu ve tekrar etmediğini kontrol et
 	is_arg_digit(stack_a);
 	is_arg_same(stack_a);
-	index_stack(*stack_a);
-	radix_sort(stack_a, stack_b);
+
+	// Eğer zaten sıralıysa hiçbir şey yapma
+	if (!is_sorted(*stack_a))
+	{
+		if (stack_size(*stack_a) <= 5)
+			short_shorting(stack_a, stack_b);
+		else
+		{
+			index_stack(*stack_a);
+			radix_sort(stack_a, stack_b);
+		}
+	}
+
 	cleanup_memory(stack_a, stack_b, args);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:26:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/04 13:58:48 by samcu            ###   ########.fr       */
+/*   Updated: 2025/03/05 22:12:28 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ void	swap_b(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
+
+// Sıralama algoritmaları
+void	short_shorting(t_stack **a, t_stack **b);
 
 #endif

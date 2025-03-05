@@ -1,64 +1,50 @@
-#include "push_swap.h"
 
+#include "../push_swap.h"
 static int	get_max_bits(t_stack **a)
 {
 	t_stack	*head;
 	int		max_bits;
-	int		max_num;
-	int		min_num;
+	int		max;
 
 	head = *a;
 	max_bits = 0;
-	max_num = head->index;
-	min_num = head->index;
-	
-	// En büyük ve en küçük sayıyı bul
+	max = head->index;
 	while (head)
 	{
-		if (head->index > max_num)
-			max_num = head->index;
-		if (head->index < min_num)
-			min_num = head->index;
+		if (head->index > max)
+			max = head->index;
 		head = head->next;
 	}
-
-	// Mutlak değerce en büyük sayının bit sayısını bul
-	if (max_num > -min_num)
-		max_num = max_num;
-	else
-		max_num = -min_num;
-
-	while ((max_num >> max_bits) != 0)
+	while ((max >> max_bits) != 0)
 		max_bits++;
-
-	return (max_bits + 1);  // İşaret biti için +1
+	return (max_bits);
 }
 
-void	radix_sort(t_stack **a, t_stack **b)
+void	radix_sort(t_stack **a, t_stack **b, int size)
 {
 	int		max_bits;
 	int		bit_pos;
-	int		current_size;
+	int		stack_size;
 	t_stack	*tmp;
+	int		i;
 
-	if (!a || !*a || !b)
-		return ;
 	bit_pos = 0;
+	stack_size = size;
 	max_bits = get_max_bits(a);
 	while (bit_pos < max_bits)
 	{
-		current_size = stack_size(*a);
-		while (current_size > 0)
+		i = 0;
+		while (i < stack_size)
 		{
 			tmp = *a;
 			if (((tmp->index >> bit_pos) & 1) == 0)
-				push_b(a, b);
+				push(a, b, "pb");
 			else
-				rotate_a(a);
-			current_size--;
+				ra(a);
+			i++;
 		}
 		while (*b)
-			push_a(b, a);
+			push(b, a, "pa");
 		bit_pos++;
 	}
 }

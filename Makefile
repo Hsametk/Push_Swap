@@ -22,7 +22,8 @@ SRC = push_swap.c \
       rotations/reverse_rotate.c \
       rotations/push.c \
       rotations/swap.c \
-      radix_sort.c
+      sorting_algorithms/radix_sort.c \
+      sorting_algorithms/short_shorting.c
 
 # Object Files
 OBJ = push_swap.o \
@@ -32,7 +33,8 @@ OBJ = push_swap.o \
       rotations/reverse_rotate.o \
       rotations/push.o \
       rotations/swap.o \
-      radix_sort.o
+      sorting_algorithms/radix_sort.o \
+      sorting_algorithms/short_shorting.o
 
 # Targets
 all: $(NAME)
