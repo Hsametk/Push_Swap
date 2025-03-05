@@ -6,7 +6,7 @@
 /*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:25:10 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/03 20:55:15 by samcu            ###   ########.fr       */
+/*   Updated: 2025/03/05 14:00:06 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,45 @@ void	index_stack(t_stack *stack)
 	}
 }
 
+static void	cleanup_memory(t_stack **stack_a, t_stack **stack_b, char **args)
+{
+	t_stack	*tmp;
+	int		i;
+
+	// Stack A'yı temizle
+	if (stack_a && *stack_a)
+	{
+		while (*stack_a)
+		{
+			tmp = (*stack_a)->next;
+			free(*stack_a);
+			*stack_a = tmp;
+		}
+		free(stack_a);
+	}
+
+	// Stack B'yi temizle
+	if (stack_b && *stack_b)
+	{
+		while (*stack_b)
+		{
+			tmp = (*stack_b)->next;
+			free(*stack_b);
+			*stack_b = tmp;
+		}
+		free(stack_b);
+	}
+
+	// args'ı temizle
+	if (args)
+	{
+		i = 0;
+		while (args[i])
+			free(args[i++]);
+		free(args);
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	**stack_a;
@@ -66,30 +105,13 @@ int	main(int argc, char *argv[])
 	create_stacks(&stack_a, &stack_b);
 	fill_stack(&stack_a, args);
 
-	// Sayıları indexle
+	// Sayıların geçerli aralıkta olduğunu ve tekrar etmediğini kontrol et
+	is_arg_digit(stack_a);
+	is_arg_same(stack_a);
 	index_stack(*stack_a);
-
-	// Sıralamadan önce stack'in durumunu yazdır
-	ft_printf("\nSıralamadan önce:");
-	print_stack(*stack_a, "Stack A");
-	print_stack(*stack_b, "Stack B");
-
 	radix_sort(stack_a, stack_b);
-
-	// Sıralamadan sonra stack'in durumunu yazdır
-	ft_printf("\nSıralamadan sonra:");
-	print_stack(*stack_a, "Stack A");
-	print_stack(*stack_b, "Stack B");
-
+	cleanup_memory(stack_a, stack_b, args);
 	return (0);
 }
-/*
-ft_strlcpy ve ft_calloc'ın hatalarını düzelt.
-  İlk olarak sayıları al OK
-  Gelen sayılar tek tırnağın içerisinde ise split fonksiyonu çağırılır ve boşluğa göre sayıları ayırır. OK
-  Hata varsa bunu free le çünkü splitte mallocluyosun. 
-  Eğer sayılar tek tırnak içerisinde değilse direk sayıları stack_a'ya ekler.
-  sadece + ve - varsa hata mesajı 
-  int max dan büyükse alma
-  Stack operasyonlarını dene swap push fln.
-*/
+// int - max ı algılamıyor.
+//memory leakler var.

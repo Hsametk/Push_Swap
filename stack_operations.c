@@ -6,12 +6,34 @@
 /*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:55:29 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/03 20:56:39 by samcu            ###   ########.fr       */
+/*   Updated: 2025/03/05 12:50:29 by samcu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static long	ft_atol(const char *str)
+{
+	long	i;
+	long	result;
+
+	i = 1;
+	result = 0;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			i *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (result * i);
+}
 void	create_stacks(t_stack ***stack_a, t_stack ***stack_b)
 {
 	*stack_a = (t_stack **)malloc(sizeof(t_stack *));
@@ -46,15 +68,22 @@ void	append(t_stack **stack, int value)
     // Yeni düğümü mevcut son düğümün arkasına bağla
 	current->next = new_node;
 }
-//to-do ilk önce int çevirmek lzm
-void	fill_stack(t_stack ***stack_a , char **args)
+
+void	fill_stack(t_stack ***stack_a, char **args)
 {
-	int	i;
+	int		i;
+	long	num;
 
 	i = 0;
 	while (args[i] != NULL)
 	{
-		append(*stack_a, ft_atoi(args[i]));
+		num = ft_atol(args[i]);
+		if (num > INT_MAX || num < INT_MIN)
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		append(*stack_a, (int)num);
 		i++;
 	}
 }

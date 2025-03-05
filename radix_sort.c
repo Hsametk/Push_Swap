@@ -4,20 +4,34 @@ static int	get_max_bits(t_stack **a)
 {
 	t_stack	*head;
 	int		max_bits;
-	int		max;
+	int		max_num;
+	int		min_num;
 
 	head = *a;
 	max_bits = 0;
-	max = head->index;
+	max_num = head->index;
+	min_num = head->index;
+	
+	// En büyük ve en küçük sayıyı bul
 	while (head)
 	{
-		if (head->index > max)
-			max = head->index;
+		if (head->index > max_num)
+			max_num = head->index;
+		if (head->index < min_num)
+			min_num = head->index;
 		head = head->next;
 	}
-	while ((max >> max_bits) != 0)
+
+	// Mutlak değerce en büyük sayının bit sayısını bul
+	if (max_num > -min_num)
+		max_num = max_num;
+	else
+		max_num = -min_num;
+
+	while ((max_num >> max_bits) != 0)
 		max_bits++;
-	return (max_bits);
+
+	return (max_bits + 1);  // İşaret biti için +1
 }
 
 void	radix_sort(t_stack **a, t_stack **b)
