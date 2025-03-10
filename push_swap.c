@@ -6,7 +6,7 @@
 /*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:25:10 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/06 12:58:17 by hakotu           ###   ########.fr       */
+/*   Updated: 2025/03/10 14:00:38 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,35 +54,6 @@ void	index_stack(t_stack *stack)
 	}
 }
 
-// static void	cleanup_memory(t_stack **stack_a, t_stack **stack_b, char **args)
-// {
-// 	t_stack	*tmp;
-// 	int		i;
-
-// 	// Stack A'yı temizle
-// 	while (*stack_a)
-// 	{
-// 		tmp = (*stack_a)->next;
-// 		free(*stack_a);
-// 		*stack_a = tmp;
-// 	}
-// 	free(stack_a);  // stack_a pointer'ını da free et
-
-// 	// Stack B'yi temizle
-// 	while (*stack_b)
-// 	{
-// 		tmp = (*stack_b)->next;
-// 		free(*stack_b);
-// 		*stack_b = tmp;
-// 	}
-// 	free(stack_b);  // stack_b pointer'ını da free et
-
-// 	// args'ı temizle
-// 	i = 0;
-// 	while (args[i])
-// 		free(args[i++]);
-// 	free(args);
-// }
 static void cleanup_memory(t_stack **stack_a, t_stack **stack_b, char **args)
 {
     t_stack *tmp;
@@ -162,4 +133,7 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 // int - max ı algılamıyor.
+
+
 //memory leakler var.
+// +0 -0 çalışıyor çalışmaması gerek

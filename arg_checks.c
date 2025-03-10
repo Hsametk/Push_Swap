@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcu <samcu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hakotu <hakotu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:38:58 by hakotu            #+#    #+#             */
-/*   Updated: 2025/03/05 14:05:45 by samcu            ###   ########.fr       */
+/*   Updated: 2025/03/10 13:58:28 by hakotu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	**argumans_controller(char **argv, int argc)
 	{
 		if (!is_valid_number(str[i]))
 		{
+			i = 0;
 			ft_printf("Error\n");
 			while (str[i])
 				free(str[i++]);
